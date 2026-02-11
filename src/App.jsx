@@ -51,18 +51,18 @@ export default function App() {
         <h1 className="text-center tx-color m-0">Calcola il tuo biglietto</h1>
       </div>
       <div className="bg-form">
-        <form id="ticket-form" className="form-position" onSubmit={(e) => { handleFormSubmit(e)}}>
+        <form id="ticket-form" className="form-position" onSubmit={(e) => { handleFormSubmit(e) }}>
           <div>
             <label htmlFor="name" className="text-white">Nome e cognome</label>
-            <input value={nameInput} onChange={(e) => setNameInput(e.target.value)} type="text" id="name" name="name" className="form-control input-width" />
+            <input value={nameInput} onChange={(e) => setNameInput(e.target.value)} type="text" id="name" name="name" className="form-control input-width" required/>
           </div>
           <div>
             <label htmlFor="kilometri" className="text-white">Km da percorrere</label>
-            <input value={kmInput} onChange={(e) => setKmInput(parseInt(e.target.value))} type="number" id="kilometri" name="kilometri" className="form-control input-width" />
+            <input value={kmInput} onChange={(e) => setKmInput(parseInt(e.target.value))} type="number" id="kilometri" name="kilometri" className="form-control input-width" required/>
           </div>
           <div>
             <label htmlFor="age" className="text-white">Età</label>
-            <select value={age} onChange={(e) => setAge(e.target.value)} name="age" id="age" className="form-control input-width">
+            <select value={age} onChange={(e) => setAge(e.target.value)} name="age" id="age" className="form-control input-width" required>
               <option value="">Seleziona</option>
               <option value="Minorenne">Minorenne</option>
               <option value="Maggiorenne">Maggiorenne</option>
@@ -73,6 +73,36 @@ export default function App() {
             <button id="invio-dati" className="btn btn-primary">Calcola</button>
           </div>
         </form>
+      </div>
+      <div className="text-center train-ticket bg pb-5">
+        <h2 className="pb-3 tx-color">Il tuo biglietto</h2>
+        <div className="container">
+
+          <table className= {`custom-table ${ticketsData.length === 0 ? 'd-none' :''}`} id="ticket">
+            <thead>
+              <tr>
+                <th>Nome passeggero</th>
+                <th>Km da percorrere</th>
+                <th>Età</th>
+                <th>Prezzo biglietto</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                ticketsData.map(({ name, km, age }, index) => {
+                  return (
+                    <tr key={index}>
+                      <td>{name}</td>
+                      <td>{km}</td>
+                      <td>{age}</td>
+                      <td>{`${price(km, age)} €`}</td>
+                    </tr>
+                  )
+                })
+              }
+            </tbody>
+          </table>
+        </div>
       </div>
     </>
   )
