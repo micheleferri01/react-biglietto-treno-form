@@ -75,7 +75,7 @@ export default function App() {
         </form>
       </div>
       <div className="text-center train-ticket bg pb-5">
-        <h2 className="pb-3 tx-color">Il tuo biglietto</h2>
+        <h2 className="pb-3 tx-color">Il tuoi biglietti</h2>
         <div className="container">
 
           <table className= {`custom-table ${ticketsData.length === 0 ? 'd-none' :''}`} id="ticket">
@@ -89,11 +89,11 @@ export default function App() {
             </thead>
             <tbody>
               {
-                ticketsData.map(({ name, km, age }, index) => {
+                ticketsData.reverse().map(({ name, km, age }, index) => {
                   return (
                     <tr key={index}>
                       <td>{name}</td>
-                      <td>{km}</td>
+                      <td>{`${km} Km`}</td>
                       <td>{age}</td>
                       <td>{`${price(km, age)} €`}</td>
                     </tr>
