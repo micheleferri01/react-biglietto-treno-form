@@ -3,3 +3,69 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+header {
+  background-color: rgba(245, 245, 245, 0.889);
+  margin: 0;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.tx-color {
+  color: rgb(0, 30, 76);
+  padding: 25px 0;
+}
+
+.bg-form {
+  background-image: url('../img/train2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: calc(100% - 96px - 223px);
+}
+
+.form-position {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  padding: 6% 0;
+  gap: 50px;
+}
+
+.input-width {
+  width: 150px;
+  box-shadow: 0 0 0.5rem 0.5rem rgba(0, 0, 0, 0.274);
+}
+
+.train-ticket {
+  height: 223px;
+}
+
+.custom-table {
+  table-layout: fixed;
+  text-align: center;
+  border-radius: 15px;
+  background-color: white;
+  margin: 0 auto;
+  width: 90%;
+  box-shadow: 0 0 0.5rem 0.3rem rgba(0, 0, 0, 0.274);
+}
+
+td,
+th {
+  padding: 10px 0;
+  width: 25%;
+  height: 44px;
+}
+
+.bg {
+  background-color: rgb(5, 193, 239);
+}
+
+/* media query */
+@media screen and (min-width: 400px) {
+  .input-width {
+    width: 400px;
+  }
+}
